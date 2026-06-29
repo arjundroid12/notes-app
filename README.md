@@ -24,7 +24,10 @@
 
 ## 🚀 Live Demo
 
-**https://arjundroid12.github.io/notes-app/**
+| Host | URL | Notes |
+|------|-----|-------|
+| 🥇 Surge.sh | https://arjun-notes.surge.sh | Bangalore edge — best for India |
+| 🥈 GitHub Pages | https://arjundroid12.github.io/notes-app/ | Primary — may be blocked by some Indian ISPs |
 
 ## 🛠️ Tech Stack
 
