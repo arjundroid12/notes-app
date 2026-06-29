@@ -18,6 +18,10 @@
 - **Keyboard shortcuts** — `Ctrl/Cmd+N` for a new note
 - **Zero dependencies** — pure HTML/CSS/JS
 
+## 📸 Screenshot
+
+![Notes App Screenshot](./assets/screenshot.png)
+
 ## 🚀 Live Demo
 
 **https://arjundroid12.github.io/notes-app/**
@@ -100,7 +104,8 @@ notes-app/
 ├── assets/
 │   ├── app.js          # App logic, state, persistence, render
 │   ├── markdown.js     # Custom markdown renderer (no deps)
-│   └── styles.css      # Theme tokens, layout, editor
+│   ├── styles.css      # Theme tokens, layout, editor
+│   └── screenshot.png  # README screenshot
 ├── index.html          # App shell
 ├── LICENSE
 ├── README.md

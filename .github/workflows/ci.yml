@@ -20,7 +20,7 @@ jobs:
       - name: Verify required files exist
         run: |
           set -e
-          for f in index.html assets/styles.css assets/app.js assets/markdown.js README.md LICENSE; do
+          for f in index.html assets/styles.css assets/app.js assets/markdown.js assets/screenshot.png README.md LICENSE; do
             if [ ! -f "$f" ]; then
               echo "❌ Missing required file: $f"
               exit 1
