@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Markdown notes app with tags, search, and dark mode. Saves to localStorage." />
+  <title>Notes · Markdown Notes App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Notes sidebar">
+      <div class="sidebar__header">
+        <h1 class="sidebar__brand">
+          <span class="sidebar__brand-icon">📝</span> Notes
+        </h1>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+          🌙
+        </button>
+      </div>
+
+      <div class="search">
+        <svg class="search__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M9.5 3a6.5 6.5 0 0 1 5.05 10.55l5.7 5.7a1 1 0 0 1-1.41 1.42l-5.7-5.7A6.5 6.5 0 1 1 9.5 3zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/>
+        </svg>
+        <input id="searchInput" type="search" class="search__input" placeholder="Search notes…" aria-label="Search notes" />
+      </div>
+
+      <div class="tags" id="tagsContainer" aria-label="Filter by tag">
+        <!-- Tags populated by JS -->
+      </div>
+
+      <button id="newNoteBtn" class="new-note-btn" type="button">
+        <span class="new-note-btn__icon">+</span> New Note
+      </button>
+
+      <ul id="notesList" class="notes-list" aria-label="Notes list" role="listbox">
+        <!-- Notes populated by JS -->
+      </ul>
+
+      <div class="sidebar__footer">
+        <span id="noteCount" class="sidebar__count">0 notes</span>
+        <button id="exportBtn" class="text-btn" type="button" title="Export notes as JSON">⬇ Export</button>
+        <button id="importBtn" class="text-btn" type="button" title="Import notes from JSON">⬆ Import</button>
+        <input id="importInput" type="file" accept="application/json" hidden />
+      </div>
+    </aside>
+
+    <!-- Editor -->
+    <main class="editor" aria-label="Note editor">
+      <div id="editorEmpty" class="editor__empty">
+        <div class="editor__empty-icon">📝</div>
+        <h2 class="editor__empty-title">No note selected</h2>
+        <p class="editor__empty-text">Create a new note or select one from the sidebar to start writing.</p>
+        <button class="primary-btn" data-action="new" type="button">+ Create your first note</button>
+      </div>
+
+      <div id="editorContent" class="editor__content" hidden>
+        <input id="noteTitle" type="text" class="editor__title" placeholder="Untitled note" aria-label="Note title" />
+
+        <div class="editor__tags-row">
+          <span class="editor__tags-label">Tags:</span>
+          <div id="noteTags" class="editor__tags" role="list"></div>
+          <input id="noteTagInput" type="text" class="editor__tag-input" placeholder="add tag + Enter" aria-label="Add tag" />
+        </div>
+
+        <div class="editor__toolbar">
+          <button class="tab-btn is-active" data-tab="write" type="button">✏️ Write</button>
+          <button class="tab-btn" data-tab="preview" type="button">👁 Preview</button>
+          <span class="editor__spacer"></span>
+          <span id="noteMeta" class="editor__meta"></span>
+          <button id="deleteNoteBtn" class="danger-btn" type="button" title="Delete note">🗑 Delete</button>
+        </div>
+
+        <textarea id="noteBody" class="editor__body" placeholder="Start writing in Markdown…&#10;&#10;# Heading&#10;**bold** *italic* &#10;- list item&#10;[link](https://example.com)&#10;&#10;\`code\`" aria-label="Note body"></textarea>
+
+        <div id="notePreview" class="editor__preview" hidden></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./assets/markdown.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
